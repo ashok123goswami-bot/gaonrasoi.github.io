@@ -1,0 +1,686 @@
+gaonrasoi.github.io
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gaon Rasoi — गाँव से, आपकी रसोई तक</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Mukta:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0906;
+    --surface:#161310;
+    --surface-alt:#1c1712;
+    --text:#ffffff;
+    --text-soft:#cfc6b0;
+    --gold:#d4af37;
+    --gold-deep:#a8841f;
+    --gold-pale:#e9c869;
+    --line: rgba(212,175,55,0.28);
+    --line-soft: rgba(255,255,255,0.12);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Mukta', sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3, .display{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    letter-spacing:-0.01em;
+    color:var(--text);
+  }
+  a{color:inherit; text-decoration:none;}
+  img,svg{display:block; max-width:100%;}
+  .wrap{max-width:1140px; margin:0 auto; padding:0 28px;}
+  .eyebrow{
+    font-family:'Mukta', sans-serif;
+    font-weight:700;
+    font-size:12.5px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+
+  /* ===== Header ===== */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(10,9,6,0.9);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px; max-width:1140px; margin:0 auto;
+  }
+  .logo{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Fraunces', serif; font-weight:700; font-size:22px;
+    color:var(--text);
+  }
+  .logo-text{
+    font-weight:900; font-size:24px; letter-spacing:-0.01em;
+    background:linear-gradient(120deg, #fff3cf 0%, #e8c256 22%, #d4af37 45%, #f6dd8c 68%, #b8912a 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    filter:drop-shadow(0 0 10px rgba(212,175,55,0.35));
+  }
+  .logo .devanagari{ color:var(--gold); font-size:15px; font-weight:600; font-family:'Mukta',sans-serif;}
+  .logo-mark{width:34px; height:34px; flex-shrink:0;}
+  nav.links{display:flex; gap:34px; font-weight:600; font-size:15px;}
+  nav.links a{position:relative; padding:4px 0; color:var(--text-soft);}
+  nav.links a:hover{color:var(--gold);}
+  .nav-cta{
+    background:var(--gold); color:#0a0906; padding:10px 20px;
+    border-radius:3px; font-weight:700; font-size:14px; letter-spacing:.02em;
+    border:1px solid var(--gold);
+    transition:transform .15s ease, background .15s ease;
+  }
+  .nav-cta:hover{ background:var(--text); border-color:var(--text); transform:translateY(-1px);}
+  .menu-btn{display:none; flex-direction:column; gap:5px; background:none; border:0; cursor:pointer; padding:6px;}
+  .menu-btn span{width:24px; height:2px; background:var(--gold); display:block;}
+
+  /* ===== Hero ===== */
+  .hero{
+    padding:76px 0 60px;
+    position:relative;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:50px; align-items:center;
+  }
+  .hero-text{ text-align:center; }
+  .hero-text .lede{ margin-left:auto; margin-right:auto; }
+  .hero-ctas{ justify-content:center; }
+  .hero h1{font-size:clamp(46px, 6.2vw, 78px); line-height:0.98; margin:14px 0 8px; color:var(--text);}
+  .gold-title{
+    font-weight:900;
+    background:linear-gradient(115deg, #fff6da 0%, #f0cd6a 18%, #d4af37 38%, #a8841f 52%, #e9c869 68%, #fff3cf 84%, #d4af37 100%);
+    background-size:220% 100%;
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    filter:drop-shadow(0 0 22px rgba(212,175,55,0.45)) drop-shadow(0 2px 0 rgba(0,0,0,0.4));
+    animation:shimmer 6s ease-in-out infinite;
+    display:inline-block;
+  }
+  @keyframes shimmer{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .gold-title{animation:none;}
+  }
+  .hero .hindi-line{
+    font-family:'Mukta', sans-serif; font-weight:600; font-size:19px; color:var(--gold);
+    margin-bottom:18px;
+  }
+  .hero p.lede{
+    max-width:460px; color:var(--text-soft); font-size:17.5px; margin-bottom:30px;
+  }
+  .hero-ctas{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--gold); color:#0a0906; padding:14px 26px; border-radius:3px;
+    font-weight:700; font-size:15px; border:1px solid var(--gold);
+    transition:transform .15s ease, background .15s ease;
+  }
+  .btn-primary:hover{background:var(--gold-pale); border-color:var(--gold-pale); transform:translateY(-2px);}
+  .btn-ghost{
+    padding:14px 24px; border-radius:3px; font-weight:700; font-size:15px;
+    border:1.5px solid var(--gold); color:var(--text);
+    transition:background .15s ease, transform .15s ease;
+  }
+  .btn-ghost:hover{background:var(--gold); color:#0a0906; transform:translateY(-2px);}
+
+  /* Hero illustration: shelf */
+  .shelf{position:relative;}
+  .seal{
+    position:absolute; top:-18px; right:-6px; width:118px; height:118px;
+    animation:spin 22s linear infinite;
+  }
+  @keyframes spin{ to{ transform:rotate(360deg);} }
+  .shelf-board{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:34px 28px 22px;
+    box-shadow:0 24px 50px -20px rgba(0,0,0,.6);
+  }
+  .shelf-items{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  .shelf-item{
+    display:flex; flex-direction:column; align-items:center; gap:8px;
+    padding:12px 6px 14px;
+    border-radius:4px;
+    transition:transform .2s ease;
+  }
+  .shelf-item:hover{transform:translateY(-6px);}
+  .shelf-item span{font-size:11.5px; font-weight:700; text-align:center; color:var(--text); letter-spacing:.01em;}
+  .shelf-plank{
+    height:10px; margin-top:6px;
+    background:repeating-linear-gradient(90deg, var(--gold), var(--gold) 2px, transparent 2px, transparent 10px);
+    opacity:.35; border-radius:2px;
+  }
+
+  /* ===== Story ribbon ===== */
+  .story{
+    background:var(--surface-alt); color:var(--text);
+    padding:64px 0;
+    position:relative;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .story-grid{display:grid; grid-template-columns:0.7fr 1.3fr; gap:40px; align-items:start;}
+  .story h2{color:var(--text); font-size:clamp(30px,4vw,42px); margin-bottom:6px;}
+  .story .eyebrow{color:var(--gold);}
+  .story p{color:var(--text-soft); font-size:17px; max-width:620px;}
+  .story p + p{margin-top:14px;}
+  .story-quote{
+    font-family:'Fraunces', serif; font-size:22px; font-style:italic; line-height:1.4;
+    border-left:3px solid var(--gold); padding-left:20px; color:var(--text);
+  }
+
+  /* ===== Products ===== */
+  .section{padding:88px 0;}
+  .section-head{max-width:600px; margin-bottom:48px;}
+  .section-head h2{font-size:clamp(32px,4.4vw,46px); margin-top:10px; color:var(--text);}
+  .section-head p{color:var(--text-soft); margin-top:14px; font-size:17px;}
+
+  .products-grid{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:22px;
+  }
+  .card{
+    background:var(--surface);
+    border:1px solid var(--line-soft);
+    border-radius:6px;
+    padding:26px 22px 24px;
+    display:flex; flex-direction:column; gap:14px;
+    transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    opacity:0; transform:translateY(18px);
+  }
+  .card.revealed{opacity:1; transform:translateY(0);}
+  .card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 20px 40px -18px rgba(0,0,0,.6);
+    border-color:var(--gold);
+  }
+  .card .icon-wrap{
+    width:56px; height:56px; border-radius:50%;
+    background:var(--surface-alt);
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .card .icon-wrap svg{width:32px; height:32px;}
+  .card h3{font-size:19px; margin-top:2px; color:var(--text);}
+  .card p{font-size:14.5px; color:var(--text-soft); line-height:1.55;}
+  .card .tag{
+    margin-top:auto; font-size:11.5px; font-weight:700; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--gold);
+  }
+  .card.span-2{grid-column:span 2;}
+  .card.span-4{grid-column:span 4;}
+  .variant-list{
+    margin-top:auto; padding-top:10px; border-top:1px solid var(--line-soft);
+    display:flex; flex-direction:column; gap:9px;
+  }
+  .variant-row{
+    display:flex; justify-content:space-between; align-items:baseline; gap:14px;
+  }
+  .variant-name{font-size:14px; font-weight:600; color:var(--text);}
+  .variant-sizes{
+    font-size:12.5px; font-weight:600; color:var(--gold); white-space:nowrap;
+    letter-spacing:.01em;
+  }
+  .tea-card{gap:22px;}
+  .chip-list{
+    margin-top:auto; padding-top:12px; border-top:1px solid var(--line-soft);
+    display:flex; flex-wrap:wrap; gap:8px;
+  }
+  .chip{
+    font-size:12px; font-weight:600; color:var(--text);
+    border:1px solid var(--line); background:var(--surface-alt);
+    border-radius:20px; padding:5px 12px;
+  }
+  .tea-card-head{display:flex; gap:18px; align-items:flex-start;}
+  .tea-card-head .icon-wrap{flex-shrink:0;}
+  .tea-card-head h3{font-size:20px; margin-bottom:6px;}
+  .tea-card-head p{font-size:14.5px; color:var(--text-soft); max-width:520px;}
+  .tea-groups{
+    display:grid; grid-template-columns:1fr 2fr; gap:30px;
+    padding-top:16px; border-top:1px solid var(--line-soft);
+  }
+  .tea-group h4{
+    font-family:'Fraunces', serif; font-size:16px; font-weight:600; color:var(--gold);
+    margin-bottom:10px;
+  }
+  .tea-note{font-size:14.5px; color:var(--text-soft);}
+  .tea-sub{margin-bottom:16px;}
+  .tea-sub:last-child{margin-bottom:0;}
+  .tea-sub-label{
+    display:block; font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--text); margin-bottom:6px;
+  }
+  .tea-list{list-style:none; display:flex; flex-direction:column; gap:5px;}
+  .tea-list li{
+    font-size:14px; color:var(--text-soft); padding-left:16px; position:relative;
+  }
+  .tea-list li::before{
+    content:"";
+    position:absolute; left:0; top:9px; width:5px; height:5px; border-radius:50%;
+    background:var(--gold);
+  }
+  @media (max-width: 880px){
+    .card.span-2{grid-column:span 2;}
+    .card.span-4{grid-column:span 2;}
+    .tea-groups{grid-template-columns:1fr;}
+  }
+  @media (max-width: 520px){
+    .card.span-2{grid-column:span 1;}
+    .card.span-4{grid-column:span 1;}
+    .variant-row{flex-direction:column; gap:2px;}
+    .tea-card-head{flex-direction:column;}
+  }
+
+  /* ===== Lab report banner ===== */
+  .lab-banner{
+    background:var(--surface);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:26px 0;
+  }
+  .lab-banner-inner{
+    display:flex; align-items:center; gap:20px; flex-wrap:wrap;
+  }
+  .lab-icon{
+    width:48px; height:48px; flex-shrink:0; border-radius:50%;
+    background:var(--surface-alt); border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .lab-icon svg{width:26px; height:26px;}
+  .lab-text{
+    flex:1; min-width:240px; font-size:16.5px; color:var(--text);
+  }
+  .lab-text strong{color:var(--gold);}
+  .lab-cta{
+    flex-shrink:0; border:1.5px solid var(--gold); color:var(--text);
+    padding:10px 20px; border-radius:3px; font-weight:700; font-size:14px;
+    transition:background .15s ease, color .15s ease, transform .15s ease;
+  }
+  .lab-cta:hover{background:var(--gold); color:#0a0906; transform:translateY(-2px);}
+
+  /* ===== Quality pillars ===== */
+  .pillars{background:var(--surface-alt); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .pillars-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:30px;
+  }
+  .pillar{display:flex; flex-direction:column; gap:12px;}
+  .pillar .num{
+    font-family:'Fraunces', serif; font-size:15px; font-weight:600; color:var(--gold);
+  }
+  .pillar h3{font-size:19px; color:var(--text);}
+  .pillar p{font-size:14.5px; color:var(--text-soft);}
+  .pillar-divider{width:36px; height:3px; background:var(--gold); border-radius:2px;}
+
+  /* ===== CTA / Contact ===== */
+  .contact{
+    background:#050403; color:var(--text);
+  }
+  .contact .wrap{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:50px; align-items:center;
+  }
+  .contact h2{color:var(--text); font-size:clamp(30px,4.2vw,44px);}
+  .contact p{color:var(--text-soft); margin-top:14px; max-width:440px;}
+  .contact-box{
+    background:var(--surface); border:1px solid var(--line); border-radius:8px;
+    padding:30px;
+  }
+  .contact-row{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:14px 0; border-bottom:1px solid var(--line-soft);
+  }
+  .contact-row:last-child{border-bottom:0;}
+  .contact-row .label{font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--text-soft);}
+  .contact-row .value{font-weight:600; font-size:15.5px; color:var(--text);}
+  .contact-cta{
+    display:block; margin-top:22px; text-align:center;
+    background:var(--gold); color:#0a0906; font-weight:700;
+    padding:14px; border-radius:4px; transition:background .15s ease, transform .15s ease;
+  }
+  .contact-cta:hover{background:var(--gold-pale); transform:translateY(-2px);}
+
+  footer{
+    background:#050403; color:var(--text-soft); padding:26px 0; border-top:1px solid var(--line-soft);
+    font-size:13.5px;
+  }
+  footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;}
+
+  @media (max-width: 880px){
+    nav.links, .nav-cta{display:none;}
+    .menu-btn{display:flex;}
+    .hero-grid, .story-grid, .contact .wrap{grid-template-columns:1fr;}
+    .products-grid{grid-template-columns:repeat(2,1fr);}
+    .pillars-grid{grid-template-columns:repeat(2,1fr); row-gap:34px;}
+    .shelf{margin-top:10px;}
+  }
+  @media (max-width: 520px){
+    .products-grid{grid-template-columns:1fr;}
+    .pillars-grid{grid-template-columns:1fr;}
+    .hero{padding-top:40px;}
+    .shelf-items{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .seal{animation:none;}
+    .card{transition:none; opacity:1; transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">
+      <svg class="logo-mark" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="19" stroke="#d4af37" stroke-width="1.4"/>
+        <path d="M20 9 C15 15 13 20 13 24 C13 29 16 32 20 32 C24 32 27 29 27 24 C27 20 25 15 20 9Z" fill="#d4af37"/>
+        <path d="M20 14 C17 18 16 21 16 24 C16 27 18 29 20 29" stroke="#0a0906" stroke-width="1.1" fill="none"/>
+      </svg>
+      <span class="logo-text">Gaon Rasoi</span> <span class="devanagari">गाँव रसोई</span>
+    </div>
+    <nav class="links">
+      <a href="#products">Products</a>
+      <a href="#story">Our Story</a>
+      <a href="#quality">Why Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="nav-cta">Get in touch</a>
+    <button class="menu-btn" aria-label="Menu" id="menuBtn"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <p class="eyebrow">Kirana staples, done the honest way</p>
+      <h1><span class="gold-title">Gaon Rasoi</span></h1>
+      <p class="hindi-line">गाँव से, आपकी रसोई तक</p>
+      <p class="lede">Cold-pressed mustard oil, stone-ground atta, and pickles made the way a village kitchen makes them — sourced close to the ground, packed close to home.</p>
+      <div class="hero-ctas">
+        <a href="#products" class="btn-primary">See our products</a>
+        <a href="#contact" class="btn-ghost">Talk to us</a>
+      </div>
+    </div>
+    <div class="shelf">
+      <svg class="seal" viewBox="0 0 120 120" fill="none">
+        <circle cx="60" cy="60" r="52" fill="#161310" stroke="#d4af37" stroke-width="1.5"/>
+        <circle cx="60" cy="60" r="43" fill="none" stroke="#d4af37" stroke-width="1" stroke-dasharray="2 3"/>
+        <path id="sealCircle" d="M60,17 a43,43 0 1,1 -0.1,0" fill="none"/>
+        <text font-family="Mukta, sans-serif" font-size="8.4" font-weight="700" letter-spacing="2" fill="#ffffff">
+          <textPath href="#sealCircle" startOffset="2%">GAON RASOI • SHUDH • TAAZA •</textPath>
+        </text>
+        <path d="M60 44 C55 50 52 55 52 60 C52 66 55 70 60 70 C65 70 68 66 68 60 C68 55 65 50 60 44Z" fill="#d4af37"/>
+      </svg>
+      <div class="shelf-board">
+        <div class="shelf-items">
+          <div class="shelf-item">
+            <svg width="34" height="34" viewBox="0 0 40 40" fill="none"><path d="M15 6h10v6l4 4v18a2 2 0 0 1-2 2H13a2 2 0 0 1-2-2V16l4-4V6Z" stroke="#d4af37" stroke-width="1.6"/><path d="M13 20h14" stroke="#ffffff" stroke-width="1.4"/><path d="M15 24h10v8H15z" fill="#d4af37"/></svg>
+            <span>Mustard Oil</span>
+          </div>
+          <div class="shelf-item">
+            <svg width="34" height="34" viewBox="0 0 40 40" fill="none"><circle cx="14" cy="24" r="5" stroke="#ffffff" stroke-width="1.5"/><circle cx="24" cy="18" r="6" stroke="#d4af37" stroke-width="1.5"/><circle cx="28" cy="27" r="4.5" stroke="#ffffff" stroke-width="1.5"/></svg>
+            <span>Dry Fruits</span>
+          </div>
+          <div class="shelf-item">
+            <svg width="34" height="34" viewBox="0 0 40 40" fill="none"><path d="M10 18h16v8a8 8 0 0 1-8 8 8 8 0 0 1-8-8v-8Z" stroke="#d4af37" stroke-width="1.6"/><path d="M26 20h3a4 4 0 0 1 0 8h-3" stroke="#d4af37" stroke-width="1.6"/><path d="M14 12c1 2-1 3 0 5M20 12c1 2-1 3 0 5" stroke="#ffffff" stroke-width="1.4"/></svg>
+            <span>Everyday Tea</span>
+          </div>
+          <div class="shelf-item">
+            <svg width="34" height="34" viewBox="0 0 40 40" fill="none"><path d="M10 18h16v8a8 8 0 0 1-8 8 8 8 0 0 1-8-8v-8Z" stroke="#ffffff" stroke-width="1.6"/><path d="M26 20h3a4 4 0 0 1 0 8h-3" stroke="#ffffff" stroke-width="1.6"/><path d="M18 10l2 4 2-4" stroke="#d4af37" stroke-width="1.4" fill="#d4af37"/></svg>
+            <span>Flavoured Tea</span>
+          </div>
+          <div class="shelf-item">
+            <svg width="34" height="34" viewBox="0 0 40 40" fill="none"><path d="M11 15h18l-2 17a2 2 0 0 1-2 2H15a2 2 0 0 1-2-2L11 15Z" stroke="#d4af37" stroke-width="1.6"/><path d="M14 15c0-4 2-7 6-7s6 3 6 7" stroke="#d4af37" stroke-width="1.6"/><path d="M15 20h10M15 25h10" stroke="#ffffff" stroke-width="1.2"/></svg>
+            <span>Multigrain Atta</span>
+          </div>
+          <div class="shelf-item">
+            <svg width="34" height="34" viewBox="0 0 40 40" fill="none"><rect x="12" y="14" width="16" height="18" rx="2" stroke="#ffffff" stroke-width="1.6"/><path d="M20 14V9M16 12l4-4 4 4" stroke="#d4af37" stroke-width="1.5"/><circle cx="20" cy="23" r="4" fill="#d4af37"/></svg>
+            <span>Pickles</span>
+          </div>
+        </div>
+        <div class="shelf-plank"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="wrap story-grid">
+    <div>
+      <p class="eyebrow">Why "Gaon Rasoi"</p>
+      <h2>The village kitchen,<br>brought to your shelf.</h2>
+    </div>
+    <div>
+      <p>Every jar of achaar and every litre of kachi ghani oil we sell starts the same way — in a small mill or a village kitchen, made in the unhurried way it's always been made.</p>
+      <p>We work directly with growers, chakkis and home producers to keep that process intact, so what reaches your kitchen still tastes like it came from one.</p>
+      <div style="height:26px"></div>
+      <p class="story-quote">"Asli swaad, gaon wala — the real taste, the village way."</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="products">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Our range</p>
+      <h2>Everyday grocery,<br>made the slow way.</h2>
+      <p>Seven staples, each one sourced and processed with the same idea: don't rush what shouldn't be rushed.</p>
+    </div>
+    <div class="products-grid">
+
+      <div class="card variant-card span-2">
+        <div class="icon-wrap"><svg viewBox="0 0 40 40" fill="none"><path d="M15 6h10v6l4 4v18a2 2 0 0 1-2 2H13a2 2 0 0 1-2-2V16l4-4V6Z" stroke="#d4af37" stroke-width="1.6"/><path d="M13 20h14" stroke="#ffffff" stroke-width="1.4"/><path d="M15 24h10v8H15z" fill="#d4af37"/></svg></div>
+        <h3>Mustard Oil</h3>
+        <p>Cold-pressed the traditional way, keeping the natural pungency and colour intact — no refining, no shortcuts.</p>
+        <div class="variant-list">
+          <div class="variant-row"><span class="variant-name">Mustard Oil</span><span class="variant-sizes">1L · 2L · 5L · 15L</span></div>
+          <div class="variant-row"><span class="variant-name">Premium Cold-Pressed Oil</span><span class="variant-sizes">1L</span></div>
+        </div>
+      </div>
+
+      <div class="card variant-card">
+        <div class="icon-wrap"><svg viewBox="0 0 40 40" fill="none"><circle cx="14" cy="24" r="5" stroke="#ffffff" stroke-width="1.5"/><circle cx="24" cy="18" r="6" stroke="#d4af37" stroke-width="1.5"/><circle cx="28" cy="27" r="4.5" stroke="#ffffff" stroke-width="1.5"/></svg></div>
+        <h3>Dehydrated Fruits</h3>
+        <p>Sun and slow-dried fruit, picked at the right ripeness so the sweetness stays natural.</p>
+        <div class="chip-list">
+          <span class="chip">Sweet Orange</span>
+          <span class="chip">Pineapple</span>
+          <span class="chip">Mango</span>
+          <span class="chip">Guava</span>
+          <span class="chip">Oranges</span>
+          <span class="chip">Pears</span>
+          <span class="chip">Apricots</span>
+          <span class="chip">Peach</span>
+        </div>
+      </div>
+
+      <div class="card variant-card">
+        <div class="icon-wrap"><svg viewBox="0 0 40 40" fill="none"><ellipse cx="20" cy="24" rx="10" ry="6" stroke="#d4af37" stroke-width="1.6"/><path d="M12 24c0-6 4-13 8-13s8 7 8 13" stroke="#ffffff" stroke-width="1.6"/><circle cx="17" cy="20" r="1.2" fill="#d4af37"/><circle cx="23" cy="19" r="1.2" fill="#d4af37"/></svg></div>
+        <h3>Dehydrated Vegetables</h3>
+        <p>Dried close to harvest to hold on to colour, texture and flavour for the pantry.</p>
+        <div class="chip-list">
+          <span class="chip">Mushroom</span>
+          <span class="chip">Tomato</span>
+        </div>
+      </div>
+
+      <div class="card variant-card tea-card span-4">
+        <div class="tea-card-head">
+          <div class="icon-wrap"><svg viewBox="0 0 40 40" fill="none"><path d="M10 18h16v8a8 8 0 0 1-8 8 8 8 0 0 1-8-8v-8Z" stroke="#d4af37" stroke-width="1.6"/><path d="M26 20h3a4 4 0 0 1 0 8h-3" stroke="#d4af37" stroke-width="1.6"/><path d="M14 12c1 2-1 3 0 5M20 12c1 2-1 3 0 5" stroke="#ffffff" stroke-width="1.4"/></svg></div>
+          <div>
+            <h3>Tea</h3>
+            <p>From an everyday chai patti to hand-blended herbal cups, brewed the way each one is meant to be.</p>
+          </div>
+        </div>
+        <div class="tea-groups">
+          <div class="tea-group">
+            <h4>Natural Tea</h4>
+            <p class="tea-note">A strong, simple chai patti for the two cups your day actually runs on.</p>
+          </div>
+          <div class="tea-group">
+            <h4>Herbal Blends</h4>
+            <div class="tea-sub">
+              <span class="tea-sub-label">Citrus &amp; Floral</span>
+              <ul class="tea-list">
+                <li>Black tea with sweet orange, citrus sinensis</li>
+                <li>Green tea with jasmine extract</li>
+                <li>Green tea with mint</li>
+              </ul>
+            </div>
+            <div class="tea-sub">
+              <span class="tea-sub-label">Spiced &amp; Malty</span>
+              <ul class="tea-list">
+                <li>Masala chai with cardamom, ginger, cinnamon, clove and black pepper</li>
+              </ul>
+            </div>
+            <div class="tea-sub">
+              <span class="tea-sub-label">Herbal</span>
+              <ul class="tea-list">
+                <li>Chamomile tea (Baboona Chai)</li>
+                <li>Lemon ginger</li>
+                <li>Cordyceps militaris chai</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card variant-card span-2">
+        <div class="icon-wrap"><svg viewBox="0 0 40 40" fill="none"><path d="M11 15h18l-2 17a2 2 0 0 1-2 2H15a2 2 0 0 1-2-2L11 15Z" stroke="#ffffff" stroke-width="1.6"/><path d="M14 15c0-4 2-7 6-7s6 3 6 7" stroke="#ffffff" stroke-width="1.6"/><path d="M15 20h10M15 25h10" stroke="#d4af37" stroke-width="1.2"/></svg></div>
+        <h3>Chakki Atta</h3>
+        <p>Ground fresh in small batches at the chakki, not stored for months — in wheat, multigrain, ragi and maize.</p>
+        <div class="variant-list">
+          <div class="variant-row"><span class="variant-name">Whole Wheat Chakki Atta</span><span class="variant-sizes">5kg · 10kg</span></div>
+          <div class="variant-row"><span class="variant-name">Multigrain Chakki Atta</span><span class="variant-sizes">5kg</span></div>
+          <div class="variant-row"><span class="variant-name">Ragi Atta</span><span class="variant-sizes">5kg</span></div>
+          <div class="variant-row"><span class="variant-name">Makke Ka Atta (Maize Flour)</span><span class="variant-sizes">5kg</span></div>
+        </div>
+      </div>
+
+      <div class="card variant-card span-2">
+        <div class="icon-wrap"><svg viewBox="0 0 40 40" fill="none"><rect x="12" y="14" width="16" height="18" rx="2" stroke="#ffffff" stroke-width="1.6"/><path d="M20 14V9M16 12l4-4 4 4" stroke="#d4af37" stroke-width="1.5"/><circle cx="20" cy="23" r="4" fill="#d4af37"/></svg></div>
+        <h3>Traditional Achaar</h3>
+        <p>Sun-cured in mustard oil the old way, in small batches so the spice never overpowers the fruit.</p>
+        <div class="variant-list">
+          <div class="variant-row"><span class="variant-name">Mango Pickle</span><span class="variant-sizes">250g · 500g</span></div>
+          <div class="variant-row"><span class="variant-name">Lemon Pickle</span><span class="variant-sizes">250g · 500g</span></div>
+          <div class="variant-row"><span class="variant-name">Jackfruit Pickle</span><span class="variant-sizes">250g · 500g</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="lab-banner">
+  <div class="wrap lab-banner-inner">
+    <div class="lab-icon">
+      <svg viewBox="0 0 40 40" fill="none"><path d="M16 6h8v9l7 13a2 2 0 0 1-1.8 3H10.8a2 2 0 0 1-1.8-3l7-13V6Z" stroke="#d4af37" stroke-width="1.6"/><path d="M14 6h12" stroke="#ffffff" stroke-width="1.6"/><path d="M15 22h10" stroke="#ffffff" stroke-width="1.3"/><circle cx="17.5" cy="27" r="1.4" fill="#d4af37"/><circle cx="22.5" cy="30" r="1.4" fill="#d4af37"/></svg>
+    </div>
+    <p class="lab-text">Get the <strong>lab report</strong> of your product — updated and uploaded with every batch.</p>
+    <a href="#contact" class="lab-cta">Request a report</a>
+  </div>
+</section>
+
+<section class="section pillars" id="quality">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Why Gaon Rasoi</p>
+      <h2>What we won't compromise on.</h2>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar">
+        <div class="pillar-divider"></div>
+        <div class="num">01</div>
+        <h3>No shortcuts</h3>
+        <p>Cold-pressed, stone-ground and sun-cured — never rushed through a machine built for speed over quality.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-divider"></div>
+        <div class="num">02</div>
+        <h3>Small batches</h3>
+        <p>We make only as much as can sell fresh, so nothing sits on a shelf longer than it should.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-divider"></div>
+        <div class="num">03</div>
+        <h3>Direct sourcing</h3>
+        <p>We work directly with growers, chakkis and village producers — fewer middlemen, more accountability.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-divider"></div>
+        <div class="num">04</div>
+        <h3>Honest labelling</h3>
+        <p>What's on the label is what's in the jar. No vague blends, no unnamed additives.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Get in touch</p>
+      <h2>Want to stock Gaon Rasoi,<br>or place a bulk order?</h2>
+      <p>Reach out for pricing, samples, or wholesale enquiries — we're happy to send a sample pack before you commit to an order.</p>
+    </div>
+    <div class="contact-box">
+      <div class="contact-row"><span class="label">Phone / WhatsApp</span><span class="value">[Add your number]</span></div>
+      <div class="contact-row"><span class="label">Email</span><span class="value">[Add your email]</span></div>
+      <div class="contact-row"><span class="label">Location</span><span class="value">[Add your city/village]</span></div>
+      <a href="#" class="contact-cta">Message on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Gaon Rasoi. All rights reserved.</span>
+    <span>गाँव से, आपकी रसोई तक</span>
+  </div>
+</footer>
+
+<script>
+  // reveal cards on scroll
+  const cards = document.querySelectorAll('.card');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){
+        setTimeout(()=> e.target.classList.add('revealed'), i%4*70);
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.15});
+  cards.forEach(c=>io.observe(c));
+
+  // mobile menu (simple toggle -> reuses nav links inline)
+  const menuBtn = document.getElementById('menuBtn');
+  let mobileNav = null;
+  menuBtn?.addEventListener('click', ()=>{
+    if(mobileNav){ mobileNav.remove(); mobileNav=null; return; }
+    mobileNav = document.createElement('div');
+    mobileNav.style.cssText = 'position:absolute;top:100%;left:0;right:0;background:#0a0906;border-bottom:1px solid rgba(212,175,55,0.28);padding:18px 28px;display:flex;flex-direction:column;gap:16px;font-weight:600;';
+    mobileNav.innerHTML = `
+      <a href="#products">Products</a>
+      <a href="#story">Our Story</a>
+      <a href="#quality">Why Us</a>
+      <a href="#contact">Contact</a>`;
+    document.querySelector('header').appendChild(mobileNav);
+    mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{ mobileNav.remove(); mobileNav=null; }));
+  });
+</script>
+
+</body>
+</html>
